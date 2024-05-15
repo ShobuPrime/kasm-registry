@@ -1,0 +1,38 @@
+{
+  "description": "Windows Tiny11 [QEMU]",
+  "docker_registry": "docker.io/elhassen/registry",
+  "image_src": "windows.png",
+  "name": "elhassen/registry:kasmqemuwindows",
+  "run_config": {
+      "hostname": "kasm",
+  "user": "root",
+  "privileged": true,
+  "environment": {
+        "CPU_CORES": 1,
+        "RAM_SIZE" : "4G",
+        "DISK_SIZE": "16G",
+        "BOOT" : "https://archive.org/download/tiny11-2311/tiny11%202311%20x64.iso"
+    }
+  },
+  "exec_config": {
+    "go": {
+      "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+    },
+    "assign": {
+      "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+    }
+  },
+  "categories": [
+    "System"
+  ],
+  "friendly_name": "Windows Tiny11 [QEMU]",
+  "architecture": [
+    "amd64",
+    "arm64"
+  ],
+  "compatibility": [
+    "1.13.x",
+    "1.14.x"
+  ],
+  "uncompressed_size_mb": 2170
+}
